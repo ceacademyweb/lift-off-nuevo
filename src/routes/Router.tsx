@@ -1,10 +1,9 @@
 import { createBrowserRouter } from "react-router-dom"
-import App from "../App";
 import AppTemplate from "../components/templates/AppTemplate";
 import Login from "../components/pages/Login";
 import Video from "../components/pages/Video";
 import Home from "../components/pages/Home";
-import Video1 from "../components/pages/Video1";
+// import Video1 from "../components/pages/Video1";
 import Journal from "../components/pages/Journal";
 import Register from "../components/pages/Register";
 import AdminTemplate from "../components/templates/AdminTemplate";
