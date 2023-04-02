@@ -204,13 +204,14 @@
   }
 }
 
-@media (min-widht: 1200px) and (max-width: 2000px) and (orientation: landscape) {
+@media screen and (min-width: 1200px) and (max-width: 2000px) and (orientation: landscape) {
 
   .form-section__container {
     padding: 15% 15% 5%;
   }
 }
 .form-section{
+  width: 100vw;
   .form-group{
     margin-bottom: 1em;
     &:last-child{
