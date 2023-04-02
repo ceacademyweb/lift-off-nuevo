@@ -4,7 +4,6 @@ import {useJournalsStore} from "../../store/Journals";
 import {useEffect, useState} from "react";
 import {useNavigate} from "react-router-dom";
 import Logo from "../molecules/Logo";
-import Slider from "../organisms/Slider";
 import {Notify} from "notiflix/build/notiflix-notify-aio";
 Notify.init({
   position: 'center-top',
@@ -89,7 +88,6 @@ const Login = () => {
       <div className="form-section__img">
         <div className="img-logo">
           <Logo />
-          <Slider />
         </div>
         <img
           src="/img/login-bg.jpg"
@@ -101,7 +99,6 @@ const Login = () => {
         <div className="form-section__header">
           <a className="form-section__logo1" href="/">
             <img src="/img/logo.svg" alt="" />
-            {/*<Slider />*/}
           </a>
         </div>
         <h1>Inicia Sesión</h1>

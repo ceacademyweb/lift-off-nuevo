@@ -2,9 +2,6 @@
 
 import { userState, useState } from 'react';
 import Logo from "../molecules/Logo";
-import Slider from "../organisms/Slider";
-// import addClass from '../utils/addClass';
-// import Slider from './login/Slider';
 import { NavLink, useNavigate, Navigate } from 'react-router-dom';
 import axios from 'axios';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
@@ -118,7 +115,6 @@ const Register = (e) => {
       <div className="form-section__img">
         <div className="img-logo">
           <Logo />
-          {/*<Slider />*/}
         </div>
         <img
           src="/img/login-bg.jpg"
@@ -131,7 +127,6 @@ const Register = (e) => {
         <div className="form-section__header">
           <a className="form-section__logo1" href="/">
             <img src="/img/logo.svg" alt="" />
-            {/*<Slider />*/}
           </a>
           <NavLink to="/login" className="ini-sesion">
             Inicia Sesión
