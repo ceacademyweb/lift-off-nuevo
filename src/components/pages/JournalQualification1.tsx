@@ -1,4 +1,6 @@
-import {useEffect, useState} from "react";
+//@ts-nocheck
+
+import {useEffect, useRef, useState} from "react";
 import {useParams} from "react-router-dom";
 import {API_PATH} from "../../utils/apiPath";
 import {getDownloadURL} from "firebase/storage";
@@ -11,7 +13,9 @@ import axios from "axios";
 const JournalQualification1 = () => {
   const {id} = useParams();
   const [journal, setJournal] = useState(null)
-  const [level, setLevel] = useState(0)
+  const [level,setLevel] = useState(null)
+  const levelInput:any = useRef()
+
   useEffect(() => {
 
     const fetchJournal = async () => {
@@ -20,11 +24,10 @@ const JournalQualification1 = () => {
         const journalRes = await journalFetch.json()
         console.log(journalRes)
         setJournal(journalRes)
-        setLevel(journalRes.level)
+        setLevel(journalRes[0].level)
       } catch (error){
         console.log(error)
       }
-
     }
     if(!journal) fetchJournal()
   }, [journal])
@@ -121,9 +124,13 @@ const JournalQualification1 = () => {
   }
  const barChange = (e:any) => {
     const value = parseInt(e.target.value)
+   // @ts-ignore
     setLevel(value)
 
  }
+
+ const lv = level
+  // @ts-ignore
   return (
     <section className="section Journal Journal-qualy padding">
       {
@@ -137,16 +144,18 @@ const JournalQualification1 = () => {
               <input
                 className="range-slider__range"
                 type="range"
-                value={level}
+                value={level.toString()}
                 min="0"
                 max="5"
                 step="1"
                 onChange={barChange}
+                ref={levelInput}
               />
               <span className="range-slider__value">{level}</span>
               <button className="range-lavel range-slider__value range-slider__button ">Guardar</button>
             </div>
             <article className={'Journal__show'}>
+              <h1>{level} nivel</h1>
               <div className="Journal__show-left">
                 <p>Sin calificar</p>
                 <div className="layer">
@@ -159,7 +168,7 @@ const JournalQualification1 = () => {
                     )
                 }
                 </div>
-                <button className={'btn btn-dark'} data-download={`${item.urlFile}`} data-id={`${item.user.name}${item.user.lastName}-${item._id}`} onClick={download}>Descargar</button>
+                <button className={'btn btn-dark btn-top'} data-download={`${item.urlFile}`} data-id={`${item.user.name}${item.user.lastName}-${item._id}`} onClick={download}>Descargar</button>
 
               </div>
               <div className="Journal__show-right">
@@ -178,7 +187,7 @@ const JournalQualification1 = () => {
                           )
                         }
                       </div>
-                      <button className={'btn btn-dark '} data-id={`${item._id}`} data-ref={`${item.journalQualifieldRefFileStorage}`} onClick={destroy}>Borrar</button>
+                      <button className={'btn btn-dark btn-top'} data-id={`${item._id}`} data-ref={`${item.journalQualifieldRefFileStorage}`} onClick={destroy}>Borrar</button>
                       </>
                     )
                     : (

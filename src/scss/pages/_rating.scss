@@ -64,3 +64,23 @@
     background: transparent;
   }
 }
+.Journal__show{
+  @include to(l){
+    display: block !important;
+  }
+}
+.btn-top{
+  margin-top: 1em;
+}
+.Journal__show-left{
+  @include to(l){
+    margin-bottom: 1.5em !important;
+  }
+}
+.range-slider{
+  @include to(l){
+    grid-template-columns: auto 1fr auto !important;
+    column-gap: 0 !important;
+    row-gap: 1em !important;
+  }
+}
