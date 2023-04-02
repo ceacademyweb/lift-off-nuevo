@@ -1,0 +1,106 @@
+.portafolio {
+  // background-color: #41526b;
+  padding-bottom: var(--header-height);
+
+  &__container {
+    padding: calc(var(--header-height) * 2) 0em !important;
+    min-height: 50vh;
+    display: flex;
+    align-items: center;
+    @include to(l){
+      padding: calc(var(--header-height) / 2) 0em !important;
+    }
+  }
+
+  &__gallery {
+    @extend %list-style;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 1em;
+
+    @include from(m) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @include from(l) {
+      grid-template-columns: repeat(4, 1fr);
+      grid-gap: 2em;
+    }
+  }
+
+  &__item {
+    $color: rgba(#7004bc, 0.5);
+    position: relative;
+    // border: 1px solid $color;
+    overflow: hidden;
+    height: auto;
+    border-radius: 0.5em;
+    box-shadow: 0 0 0 1px rgba(#000, 0.2), 5px 5px 10px 0px rgba(0, 0, 0, 0.5);
+    transition: box-shadow 0.3s;
+    cursor: pointer;
+
+    @include from(l) {
+      min-height: 100px;
+      // height: calc(var(--item-height) * 0.5);
+    }
+
+    img {
+      position: relative;
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      transition: transform 0.3s;
+      transition: all 1.4s ease-in-out;
+
+      @include to(l) {
+        transition: all 0.3s ease-in-out;
+      }
+
+      // z-index: 75;
+    }
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      transform: translateY(100%);
+      transition: transform 0.3s;
+      z-index: 80;
+
+      .mobile & {
+        display: none;
+      }
+    }
+
+    &::before {
+      background: var(--color-second-opacity);
+      background: rgba(#000, 0.2);
+    }
+
+    &::after {
+      background: img('plus.svg') center / 10% no-repeat;
+    }
+
+    &:hover {
+
+      &::after,
+      &::before {
+        transform: translateX(0);
+      }
+
+      img {
+        transform: scale(1.7) rotate(-20deg);
+
+        @include to(l) {
+          transform: scale(1.1);
+        }
+      }
+    }
+  }
+}

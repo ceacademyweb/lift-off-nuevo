@@ -1,0 +1,53 @@
+.servicios {
+  background: linear-gradient(to right, #237AFE 2%, #03A9F5 82%);
+  color: var(--body-bg);
+  min-height: calc(100vh * .75);
+  display: flex;
+  align-items: center;
+
+  @include to(l) {}
+
+  &__container {
+    padding: 5vh 1em 15vh !important;
+    display: flex;
+    flex-direction: column;
+
+    @include from(l) {
+      padding: 5vh 0 !important;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: 4em;
+    }
+  }
+
+  &__text-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    @include to(l) {
+      order: 0;
+      margin-bottom: 2em;
+    }
+  }
+
+  &__group {
+    margin-bottom: 1.3em;
+
+    &:last-child,
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+
+  &__title {
+    font-weight: 700;
+    margin-bottom: 0;
+  }
+
+  &__vector {
+    @include to(l) {
+      order: 1;
+    }
+  }
+}

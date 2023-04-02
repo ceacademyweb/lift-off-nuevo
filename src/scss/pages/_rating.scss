@@ -1,0 +1,66 @@
+.Rating{
+  padding: 0 10%;
+  &__container{
+    @include from(m){
+      display: grid;
+      grid-template-columns: repeat(2,1fr);
+      gap: 1.2rem;
+    }
+    @include from(lg){
+      grid-template-columns: repeat(4,1fr);
+      gap: 3em;
+      embed, img{
+        display: block;
+        margin-top: 1em;
+        border: none !important;
+        width: 100%;
+        aspect-ratio: 16 / 9;
+      }
+    }
+    &__item__rating{
+      position: relative;
+      &:after{
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: transparent;
+      }
+    }
+  }
+  h2,p{
+    margin-bottom: 0;
+  }
+}
+.journal-item{
+  position: relative;
+  img,embed{
+    display: block;
+    border: none !important;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+  }
+  &:before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+  }
+}
+.layer{
+  position: relative;
+  &:before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+  }
+}

@@ -1,0 +1,166 @@
+.main-footer {
+  margin-top: auto;
+  padding-top: 2em;
+
+  &__container {
+    width: 90%;
+    margin: 0 auto 2em;
+
+    @include from(lg) {
+      display: grid;
+      column-gap: 5%;
+      grid-template-columns: repeat(3, 1fr);
+      // justify-content: space-between;
+      margin-bottom: 2em;
+    }
+  }
+
+  &__data {
+    justify-self: start;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+
+    @include to(lg) {
+      margin-bottom: 2em;
+      align-items: flex-start;
+    }
+  }
+
+  &__logo {
+    width: 60%;
+    margin: 0 auto;
+    margin-bottom: 1em;
+
+    @include from(lg) {
+      margin: 1em;
+      max-width: 12vw;
+    }
+
+    @media screen and (min-width:1024px) and (orientation: portrait) {
+      margin-bottom: 2em;
+    }
+  }
+
+  &__social {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    column-gap: 1em;
+    font-size: 1.2em;
+
+    @include from(lg) {
+      margin: 0 auto;
+      justify-content: flex-start;
+    }
+  }
+}
+
+.newsletter {
+  justify-self: end;
+  // margin-top: 1em;
+  text-align: center;
+  text-transform: uppercase;
+  // padding: 0 1em;
+  height: 100%;
+
+  h3 {
+    font-size: 1em !important;
+  }
+
+  @include from(lg) {
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  form {
+    margin-bottom: 0 !important;
+    display: grid;
+    row-gap: 1em;
+    grid-template-columns: 1fr;
+    column-gap: 1em;
+    margin-bottom: 1em;
+    justify-content: end;
+
+    @include from(lg) {
+      grid-template-columns: 1fr auto;
+      display: grid;
+    }
+
+    button {
+      @include to(lg) {
+        font-size: .8em;
+      }
+    }
+
+    input {
+      background-color: #fff;
+      border: 1px solid rgba(#000, .5);
+      border-radius: .3rem;
+      padding: 0 .5em;
+      line-height: 2.5em;
+      display: block;
+      font-size: .8em;
+      font-family: inherit;
+      color: inherit;
+      width: 100%;
+
+      // max-width: 500px;
+      @include from(lg) {
+        width: 20vw;
+      }
+    }
+  }
+}
+
+input:placeholder-shown {
+  // color: red;
+}
+
+.bottom-bar {
+  background-color: var(--black);
+  text-align: center;
+  color: var(--white);
+  line-height: 3em;
+  margin-bottom: 0;
+
+  @include from(xl) {
+    font-size: .8em;
+  }
+
+  a {
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.sponsors {
+  text-align: center;
+  margin-bottom: 2em;
+
+  @include from(lg) {
+    margin-bottom: 0;
+  }
+
+  ul {
+    font-size: .9em;
+  }
+}
+
+// .main-footer__container{
+//   background-color: beige;
+//   > :first-child{
+//     background-color: lightblue;
+//   }
+//   > :nth-child(2){
+//     background-color: lightcoral;
+//   }
+//   > :nth-child(3){
+//     background-color: lightgreen;
+//   }
+// }

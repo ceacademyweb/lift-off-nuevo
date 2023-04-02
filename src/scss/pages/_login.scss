@@ -1,0 +1,16 @@
+.isloginpage{
+  .main-header{
+    display: none;
+  }
+  .main-footer{
+    display: none;
+  }
+  .login{
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background-color: #fff;
+  }
+}

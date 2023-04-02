@@ -1,0 +1,28 @@
+.modal-res{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(#000,.9);
+  top:0;
+  left: 0;
+  z-index: 20000;
+  &__container{
+    background-color: #fff;
+    padding: 3em;
+    text-align: center;
+    font-size: 1.1em;
+    border-radius: .5rem;
+    img{
+      width: 60%;
+      max-width: 200px;
+      margin: 0 auto 2em;
+
+    }
+    a{
+
+    }
+  }
+}

@@ -1,0 +1,161 @@
+.nosotros {
+  // background-color: lightgoldenrodyellow;
+  height: auto;
+
+  &__container {
+    padding: 5vh 1em !important;
+    display: flex;
+    flex-direction: column;
+
+    @include from(l) {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: 2em;
+    }
+  }
+
+  &__text {
+    order: 1;
+    width: 100%;
+
+    @include from(l) {
+      order: initial;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+    }
+  }
+
+  &__vector {
+    order: 0;
+    margin-bottom: 2em;
+
+    @include from(l) {
+      order: initial;
+    }
+  }
+
+  &__btn {
+    display: table;
+    margin-left: auto;
+    margin-right: auto;
+
+    @include from(l) {
+      display: inline-block;
+      margin-left: initial;
+      margin-right: initial;
+    }
+  }
+}
+
+.skill {
+  margin-bottom: 5vh;
+
+  @include from(m) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 2em;
+  }
+
+  @include from(l) {
+    grid-template-columns: repeat(4, 1fr);
+    grid-column-gap: 4em;
+  }
+
+  &-item {
+    display: grid;
+    grid-template-rows: 75px auto;
+    margin-bottom: 2em;
+
+    @include from(l) {
+      grid-template-rows: calc(var(--item-skill-width) * 0.6) auto;
+
+    }
+
+    &:hover {
+      .skill-circle {
+        box-shadow: 0 0 0 3px var(--shadow-color), 0 0 0 8px var(--bg-color);
+      }
+    }
+
+    @include from(l) {
+      margin-bottom: 0;
+    }
+
+    &:nth-child(1) {
+      .skill-circle {
+        --bg-color: #03a9f5;
+      }
+    }
+
+    &:nth-child(2) {
+      .skill-circle {
+        --bg-color: #41526b;
+      }
+    }
+
+    &:nth-child(3) {
+      .skill-circle {
+        --bg-color: #9556f5;
+      }
+    }
+
+    &:nth-child(4) {
+      .skill-circle {
+        --bg-color: #f021b6;
+      }
+    }
+  }
+
+  &-vector {
+    position: relative;
+
+    @include to(m) {}
+  }
+
+  &-circle {
+
+    --shadow-color: #fff;
+    position: absolute;
+    display: block;
+    width: 50px;
+    height: 50px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--bg-color);
+
+    @include from(l) {
+      width: calc(var(--item-skill-width) * 0.4);
+      height: calc(var(--item-skill-width) * 0.4);
+    }
+
+    // box-shadow: 0 0 0 3px var(--bg-color), 0 0 0 7px blue;
+    @include to(m) {
+      box-shadow: 0 0 0 3px var(--shadow-color), 0 0 0 8px var(--bg-color);
+    }
+
+    svg {
+      fill: #fff;
+      display: block;
+      width: 25px;
+      height: 25px;
+
+      @include from(l) {
+        width: calc(var(--item-skill-width) * 0.15);
+        height: calc(var(--item-skill-width) * 0.15);
+
+      }
+    }
+  }
+
+  &-text {
+    font-size: 1.3em;
+    text-align: center;
+  }
+}

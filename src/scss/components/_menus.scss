@@ -1,0 +1,35 @@
+.main-menu{
+  @include to(l){
+    position: absolute;
+    top: calc(var(--header-height) + 0em);
+    left: 0;
+    width: 100%;
+    background-color: #010101;
+    z-index: 100;
+    color: #fff;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .3s;
+    &.is-active{
+      max-height: 20vh;
+    }
+    li{
+      padding: 0 1em;
+      &:last-child{
+        border-bottom: none;
+      }
+    }
+    a{
+      display: block;
+      line-height: 3em;
+      &:first-of-type{
+        border-bottom: 1px solid rgba(#fff,.2);
+
+      }
+    }
+  }
+  @include from(lg){
+    display: flex;
+    column-gap: 1em;
+  }
+}

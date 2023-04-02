@@ -1,0 +1,47 @@
+.Header {
+  height: var(--header-height);
+  display: grid;
+  align-items: center;
+  grid-template-columns: 1fr auto;
+  padding: 0 var(--padding-X);
+  position: relative;
+  @include to(m){
+    margin-bottom: 3em;
+  }
+  @include from(l) {
+    padding: 0 var(--padding-X);
+  }
+  @include tablet() {
+    padding: 0 var(--padding-X);
+  }
+  @include tabletLandscape() {
+    padding: 0 var(--padding-X);
+  }
+  &__top{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    @include from(m){
+      justify-content: flex-start;
+    }
+  }
+  &__logo{
+    display: block;
+    width: 70%;
+    max-width: 200px;
+    margin-right: 1.2em;
+  }
+  .user-container{
+    margin-bottom: 0 !important;
+    //display: none;
+    position: absolute;
+    top: calc(var(--header-height) + 0em);
+    left: 50%;
+    transform: translateX(-50%);
+    @include from(m){
+      position: static;
+      display: block;
+    }
+  }
+}
+

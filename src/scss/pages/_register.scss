@@ -1,0 +1,228 @@
+.form-section{
+  // background-color: bisque;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2em 1em 3em;
+  max-width: 600px;
+  margin: 0 auto;
+  @include from(l) {
+    display: grid;
+    grid-template-columns: 30% 1fr;
+    padding: 0;
+    max-width: unset;
+  }
+  &__img{
+    display: none;
+    @include from(l){
+      display: block;
+      order: 2;
+      height: 100%;
+      position: relative;
+      background: #000;
+      .img-logo{
+        position: absolute;
+        top: 50%;
+        left: 8%;
+        display: grid;
+        grid-template-columns: auto 1fr;
+        align-items: center;
+        transform: translateY(-150%);
+        z-index: 10;
+
+        // justify-content: center;
+        img ,svg{
+          width: 100px;
+          fill: #000;
+          // opacity: .5;
+        }
+        p{
+          margin-bottom: 0;
+          margin-left: 1em;
+          font-size: 1.1em;
+          color: #000;
+        }
+      }
+      .img-fondo{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: left center;
+        opacity: .85;
+      }
+    }
+  }
+  &__header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    padding: 1em  1em;
+    @include from(l){
+      // position: relative;
+    }
+  }
+  &__logo{
+    display: block;
+    width: 120px;
+    display: flex;
+    @include from(l) {
+      display: none;
+    }
+  }
+  &__container{
+    // background-color: lightcoral;
+    @include from(l) {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 0 15%;
+      // align-items: center;
+      grid-template-columns: 1fr 1fr;
+    }
+    h1,p{
+      margin-bottom: 1em;
+      @include from(l){
+        font-size: 1.4em;
+      }
+    }
+    button{
+      border: none;
+      margin-top: 1em;
+      background-color: #444;
+      width: 150px;
+      color: #fdfdfd;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 3em;
+      border-radius: .4rem;
+      //padding: 0 1.5em;
+      line-height: 3em;
+      img{
+        width: 2.5em;
+      }
+    }
+  }
+  .group{
+    margin-bottom: .5em;
+    @include from(l){
+      margin-bottom: 1.4em;
+    }
+    input{
+      font-family: inherit;
+      font-size: inherit;
+      line-height: 2em;
+      padding: 0 .5em;
+      border: 1px solid rgba(#000,.5);
+      border-radius: .2rem;
+      background-color: #fff !important;
+
+      &:focus{
+        background-color: #fff;
+      }
+      &:autofill{
+        background-color: #fff!important;
+
+      }
+    }
+  }
+}
+.form-section__logo1{
+  display: flex;
+  @include from(l){
+    display: none;
+  }
+  img{
+    width: 120px
+
+  }
+  p{
+    margin-bottom: 0;
+    margin-left: .5em;
+  }
+}
+.ini-sesion{
+  font-size: .8em;
+}
+.form-section__form{
+  @include to(m){
+    // background: #444;
+    max-height: 65vh;
+    overflow-y: auto ;
+  }
+  @media (max-width: 1024px) and (orientation: landscape){
+    max-height: 65vh;
+    width: 100%;
+    max-width: unset;
+  }
+}
+.form-section{
+  @media (max-width: 1024px) and (orientation: landscape){
+    max-width: unset;
+  }
+
+}
+.form-section{
+  @media (max-width: 1024px) and (orientation: portrait){
+    max-width: unset;
+    padding-left: 3em;
+    padding-right: 3em;
+  }
+
+}
+
+@media (max-width: 1024px) and (orientation: portrait) {
+  .form-section {
+    max-width: unset;
+    padding-left: 3em;
+    padding-right: 3em;
+  }
+  .form-section__img{
+    display: none;;
+  }
+  .form-section{
+    display: block;
+    padding-top: var(--header-height) !important;
+  }
+}
+
+@media (max-width: 1366px) and (orientation: landscape) {
+  .form-section {
+    grid-template-columns: 40vw 1fr !important;
+    img{
+      object-position: center left  !important;;
+    }
+  }
+  .form-section__container{
+    padding: 15% 15% 5%;
+  }
+}
+
+@media (min-widht: 1200px) and (max-width: 2000px) and (orientation: landscape) {
+
+  .form-section__container {
+    padding: 15% 15% 5%;
+  }
+}
+.form-section{
+  .form-group{
+    margin-bottom: 1em;
+    &:last-child{
+      margin-bottom: 0;
+    }
+  }
+  input {
+    border: 1px solid rgba(#000, .5);
+    background: rgba(#fff, .5);
+    line-height: 2.5em;
+    width: 100%;
+    border-radius: .3rem;
+    padding: 0 .5em;
+  }
+}

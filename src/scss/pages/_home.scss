@@ -1,0 +1,123 @@
+.Media{
+  padding: 0 1em;
+  position: relative;
+  margin-top: calc(var(--header-height) + 30px);
+  @include from(m){
+    padding: 5%;
+  }
+  @include from(lg) {
+    padding-left: 10%;
+    padding-right: 10%;
+    margin-top: 2em;
+  }
+}
+
+.video-container{
+  padding: 0 1em;
+  @include from(m){
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1em;
+    padding: 0;
+  }
+  @include from(l){
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2em
+  }
+  &__item{
+    border-radius: .5em;
+    overflow: hidden;
+    @include to(m){
+      margin-bottom: 1em;
+    }
+  }
+  figcaption{
+    text-align: center;
+    line-height: 3em;
+    background-color: #000;
+    color: #fff;
+    border-top: 1px solid #fff;
+
+  }
+}
+.fase-container{
+  margin-bottom: 5em;
+  &:last-child{
+    margin-bottom: 0;
+  }
+}
+.fase-title{
+  font-family: inherit;
+  text-align: center;
+  margin-bottom: 1.5em;
+  font-size: 2em;
+  font-weight: bold;
+}
+.dropdown{
+  display: inline-block;
+  width: auto;
+  position: fixed;
+  //transform: translateY(-20%);
+  right: 10%;
+  top: calc(var(--header-height) + 50px);
+  @include to(m){
+    transform-origin: center;
+    transform: scale(.9) translateX(60%);
+    right: 50%;
+  }
+  @include from(lg){
+    top: calc(var(--header-height) + 50px);
+  }
+  //&:hover{
+  //  .dropdown__list:not(body.mobile){
+  //    background: red;
+  //    max-height: 35vh !important;
+  //  }
+  //}
+  &__button{
+    cursor: pointer;
+    border: none;
+    background: var(--color-main);
+    color: #fff;
+    padding: 0 2em;
+    line-height: 2.5em;
+    border-radius: .5em;
+
+  }
+  &__list{
+    text-align: center;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .3s;
+    li{
+      line-height: 2em;
+      margin-bottom: .5em;
+      background: #f0f2f5;
+      border: 1px solid #e1e6eb;
+      text-align: center;
+      border-radius: .5em;
+      &:first-child{
+        margin-top: .5em;
+      }
+      &:last-child{
+        margin-bottom: 0;
+      }
+    }
+    a{
+      display: block;
+      text-align: center;
+    }
+  }
+}
+body:not(.mobile){
+  .dropdown:hover{
+    .dropdown__list{
+      max-height: 35vh;
+    }
+  }
+}
+body.mobile{
+  .dropdown__list.active{
+    max-height: 35vh;
+  }
+}
