@@ -13,6 +13,7 @@ import JournalNew from "../components/pages/JournalNew";
 import React from "react";
 import JournalUser from "../components/pages/JournalUser";
 import JournalAdmin from "../components/pages/JournalAdmin";
+import JournalsUser from "../components/pages/JournalsUser";
 // @ts-ignore
 const Router = createBrowserRouter([
   {
@@ -29,7 +30,7 @@ const Router = createBrowserRouter([
       },
       {
         path: "/journal",
-        element: <JournalNew/>
+        element: <JournalsUser/>
       },
       {
         path: "/journal/:id",

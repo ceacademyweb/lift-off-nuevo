@@ -7,6 +7,7 @@ import {uploadFile} from "../../utils/firebase";
 import {Link} from "react-router-dom";
 import {Notify} from "notiflix/build/notiflix-notify-aio";
 import axios from "axios";
+import journal from "./Journal";
 
 const JournalNew = () => {
   const user = useUserStore(state => state.user)
@@ -17,11 +18,27 @@ const JournalNew = () => {
   const {JournalsStr, setJournalsStr} = useJournalsStore();
   const logoutJournalsStr = useJournalsStore(state => state.logoutJournalsStr);
   useEffect(() => {
-    axios.get(`${API_PATH}/user-new/${userID}`)
-      .then(res => {
-        console.log(res.data)
-        setJournalsStr(res.data)
-      })
+    console.log(userID)
+    console.log('entra')
+    const getJournal = () => {
+      console.log('entra')
+      fetch(`${API_PATH}/journalforuser/${userID}`)
+        .then(response => response.json())
+        .then(data => {
+          // const journalObj = {
+          //   data: data.result,
+          //
+          // }
+          console.log(data)
+          // // setLevel(data.user.level)
+          // setJournals(data.result)
+        })
+    }
+
+    // console.log(journal.user.level,'journal')
+    // setLevel(journal.user.level)
+
+    getJournal()
   }, [])
 
   const submit = async (e: any) => {
@@ -162,10 +179,12 @@ const JournalNew = () => {
                 )
               }
             </div>
+            <p>Tino</p>
           </Link>
           ))
         }
       </article>
+
     </section>
   )
 }
