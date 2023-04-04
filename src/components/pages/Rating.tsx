@@ -23,25 +23,67 @@ const Rating = () => {
   return (
     <section className="Rating">
       <h1>Journals</h1>
+      <h2>Sin Calificar</h2>
       <article className={'Rating__container'}>
         {
           // JSON.stringify(journals)
           // @ts-ignore
           journals && journals.map((item: any, index: number) => (
-            <Link to={`/admin/calificacion/${item._id}`} key={item._id}>
-              <p>{item.user.name} {item.user.lastName}</p>
-              <p>Código: {item.user.codeMember?item.user.codeMember:'no existe código'}</p>
-              <div className="journal-item" key={index}>
-                {
-                  item.ext === 'pdf' ? (
-                      <embed src={`${item.urlFile}#toolbar=0&navpanes=0&scrollbar=0&view=FitH`} type="application/pdf"/>
-                    ):
-                    (
-                      <img src={item.urlFile} alt={item._id}/>
-                    )
-                }
-              </div>
-            </Link>
+            <>
+              {
+                !item.qualified
+                ? (
+                    <Link to={`/admin/calificacion/${item._id}`} key={item._id}>
+                      {/*<p>{item.user.name} {item.user.lastName}</p>*/}
+                      {/*<p>Código: {item.user.codeMember?item.user.codeMember:'no existe código'}</p>*/}
+                      <div className="journal-item" key={index}>
+                        {
+                          item.ext === 'pdf' ? (
+                              <embed src={`${item.urlFile}#toolbar=0&navpanes=0&scrollbar=0&view=FitH`} type="application/pdf"/>
+                            ):
+                            (
+                              <img src={item.urlFile} alt={item._id}/>
+                            )
+                        }
+                      </div>
+                    </Link>
+                  )
+                : null
+              }
+            </>
+
+          ))
+        }
+      </article>
+      <h2>Calificados</h2>
+      <article className={'Rating__container'}>
+        {
+          // JSON.stringify(journals)
+          // @ts-ignore
+          journals && journals.map((item: any, index: number) => (
+            <>
+              {
+                item.qualified
+                ? (
+                    <Link to={`/admin/calificacion/${item._id}`} key={item._id}>
+                      {/*<p>{item.user.name} {item.user.lastName}</p>*/}
+                      {/*<p>Código: {item.user.codeMember?item.user.codeMember:'no existe código'}</p>*/}
+                      <div className="journal-item" key={index}>
+                        {
+                          item.ext === 'pdf' ? (
+                              <embed src={`${item.urlFile}#toolbar=0&navpanes=0&scrollbar=0&view=FitH`} type="application/pdf"/>
+                            ):
+                            (
+                              <img src={item.urlFile} alt={item._id}/>
+                            )
+                        }
+                      </div>
+                    </Link>
+                  )
+                : null
+              }
+            </>
+
           ))
         }
       </article>

@@ -129,7 +129,24 @@ const JournalQualification1 = () => {
 
  }
 
- const lv = level
+ const levelUpdate = async (e:any) => {
+    e.preventDefault()
+   const formData = new FormData()
+   formData.append('level', e.target.dataset.level)
+   formData.append('id', e.target.dataset.id)
+   formData.append('journalId', e.target.dataset.journalid)
+    try{
+      const result = await axios.post(`${API_PATH}/level`, formData)
+      if(result.status===200){
+        console.log(result.data)
+        Notify.success('Nivel actualizado');
+      }else{
+        throw new Error('No se pudo actualizar el nivel')
+      }
+    }catch (e:any) {
+      Notify.failure(e.message);
+    }
+ }
   // @ts-ignore
   return (
     <section className="section Journal Journal-qualy padding">
@@ -152,10 +169,9 @@ const JournalQualification1 = () => {
                 ref={levelInput}
               />
               <span className="range-slider__value">{level}</span>
-              <button className="range-lavel range-slider__value range-slider__button ">Guardar</button>
+              <button className="range-lavel range-slider__value range-slider__button" data-id={item.user._id} data-level={level} data-journalid={item._id} onClick={levelUpdate}>Guardar</button>
             </div>
             <article className={'Journal__show'}>
-              <h1>{level} nivel</h1>
               <div className="Journal__show-left">
                 <p>Sin calificar</p>
                 <div className="layer">

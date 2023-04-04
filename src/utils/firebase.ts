@@ -43,7 +43,7 @@ export const storage = getStorage(app);
 export const analytics = getAnalytics(app);
 
 export const uploadFile = async (file: File) => {
-  const ext = file.type.split('/')[1];
+  const ext = file.name.split('.')[1];
   const storageRef = ref(storage, `journals/${v4()}.${ext}`);
   const result = await uploadBytes(storageRef, file);
   const url = await getDownloadURL(storageRef);
@@ -56,6 +56,5 @@ export const uploadFile = async (file: File) => {
 export const ObjectDelete = async (refToFile: string) => {
   const storageRef = ref(storage, refToFile);
   const deleteObjectFn = await deleteObject(storageRef)
-  console.log(deleteObjectFn)
   return deleteObjectFn;
 }

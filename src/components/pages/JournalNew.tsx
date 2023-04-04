@@ -17,7 +17,7 @@ const JournalNew = () => {
   const {JournalsStr, setJournalsStr} = useJournalsStore();
   const logoutJournalsStr = useJournalsStore(state => state.logoutJournalsStr);
   useEffect(() => {
-    axios.get(`${API_PATH}/journals/${userID}`)
+    axios.get(`${API_PATH}/user-new/${userID}`)
       .then(res => {
         console.log(res.data)
         setJournalsStr(res.data)
@@ -64,6 +64,14 @@ const JournalNew = () => {
 
 
   }
+
+  // const submit = async (e: any) => {
+  //   e.preventDefault()
+  //   const formData = new FormData(e.target)
+  //   formData.append('journal',JSON.stringify({ide: 123, name: 'test'}))
+  //   const response =  await axios.post(`${API_PATH}/journal`, formData)
+  //   console.log(response.data)
+  // }
   return (
     <section className="section Journal padding">
       <h1 className="text-center">Journal</h1>

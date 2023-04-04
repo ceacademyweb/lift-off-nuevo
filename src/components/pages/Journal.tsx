@@ -12,7 +12,7 @@ const Journal = () => {
   useEffect(() => {
     (async ()=> {
       console.log(`${API_PATH}/journal/${id}`)
-      const journalFetch = await fetch(`${API_PATH}/journal/${id}`)
+      const journalFetch = await fetch(`${API_PATH}/journalforuser/${id}`)
       const journalRes = await journalFetch.json()
       console.log(journalRes)
       setJournal(journalRes)

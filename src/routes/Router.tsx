@@ -11,6 +11,8 @@ import Rating from "../components/pages/Rating";
 import JournalQualification1 from "../components/pages/JournalQualification1";
 import JournalNew from "../components/pages/JournalNew";
 import React from "react";
+import JournalUser from "../components/pages/JournalUser";
+import JournalAdmin from "../components/pages/JournalAdmin";
 // @ts-ignore
 const Router = createBrowserRouter([
   {
@@ -31,7 +33,7 @@ const Router = createBrowserRouter([
       },
       {
         path: "/journal/:id",
-        element: <Journal/>
+        element: <JournalUser/>
       }
 
     ]
@@ -55,7 +57,7 @@ const Router = createBrowserRouter([
       {
         path: "/admin/calificacion/:id",
         // @ts-ignore
-        element: <JournalQualification1/>
+        element: <JournalAdmin/>
       },
     ]
   }
