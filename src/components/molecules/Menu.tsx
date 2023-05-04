@@ -3,9 +3,13 @@
 import menu from '../../utils/menu';
 import { NavLink } from 'react-router-dom';
 import {useUserStore} from "../../store/user";
+import {useState} from "react";
 
 const Menu = ({ active, action }) => {
   const isAdmin = useUserStore(state => state.isAdmin)
+  const isSuper = useUserStore(state => state.isSuper)
+  const user = useUserStore(state => state.user)
+  const [superUser, setSuperUser] = useState(user.isSuper)
   return (
     <ul className={`main-menu ${active ? 'is-active' : ''}`}>
       {menu.map((item) => (
@@ -36,6 +40,20 @@ const Menu = ({ active, action }) => {
             </NavLink>
           </li>
         ):null
+
+      }
+      {
+        superUser ? (
+          <li className="main-menu__item">
+            <NavLink onClick={action}
+                     className={'main-menu__link'}
+                     to={'/super/nuevos'}>
+              Nuevos
+
+            </NavLink>
+          </li>
+        ):null
+
       }
     </ul>
   );

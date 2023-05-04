@@ -14,6 +14,8 @@ import React from "react";
 import JournalUser from "../components/pages/JournalUser";
 import JournalAdmin from "../components/pages/JournalAdmin";
 import JournalsUser from "../components/pages/JournalsUser";
+import SuperTemplate from "../components/templates/superTemplate";
+import NewUsers from "../components/pages/NewUsers";
 // @ts-ignore
 const Router = createBrowserRouter([
   {
@@ -60,6 +62,16 @@ const Router = createBrowserRouter([
         // @ts-ignore
         element: <JournalAdmin/>
       },
+    ]
+  },
+  {
+    path: "/super",
+    element: <SuperTemplate/>,
+    children: [
+      {
+        path: "/super/nuevos",
+        element: <NewUsers/>
+      }
     ]
   }
 ])

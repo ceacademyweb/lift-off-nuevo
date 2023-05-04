@@ -6,12 +6,14 @@ type State = {
   token: string;
   isAdmin: boolean;
   isAuth: boolean;
+  isSuper: boolean;
 }
 
 type Actions = {
   setUser: (user: object) => void;
   setToken: (token: string) => void;
   setAdmin: (isAdmin: boolean) => void;
+  setSuper: (isAdmin: boolean) => void;
   logout: () => void;
 }
 
@@ -21,6 +23,7 @@ export const useUserStore = create(persist<State & Actions>(
     token: "",
     isAdmin: false,
     isAuth: false,
+    isSuper: false,
     setUser: (user: any) => set((state) => ({
       user
     })),
@@ -30,6 +33,9 @@ export const useUserStore = create(persist<State & Actions>(
     })),
     setAdmin: (isAdmin: boolean) => set((state) => ({
       isAdmin
+    })),
+    setSuper: (isSuper: boolean) => set((state) => ({
+      isSuper
     })),
     logout: ()=> set(state=>({
       token:"",

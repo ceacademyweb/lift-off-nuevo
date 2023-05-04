@@ -1,7 +1,7 @@
 const menu = [
   {
     title: 'TRADEPLOY',
-    link: 'http://tradeploy.ceacademy.world',
+    link: 'http://tradeploy.com',
   },
   {
     title: 'JOURNAL',
