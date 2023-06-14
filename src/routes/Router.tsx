@@ -16,11 +16,13 @@ import JournalAdmin from "../components/pages/JournalAdmin";
 import JournalsUser from "../components/pages/JournalsUser";
 import SuperTemplate from "../components/templates/superTemplate";
 import NewUsers from "../components/pages/NewUsers";
+import BlankTemplate from "../components/templates/BlankTemplate";
 // @ts-ignore
 const Router = createBrowserRouter([
   {
     path: "/",
-    element: <AppTemplate/>,
+    // element: <AppTemplate/>,
+    element: <BlankTemplate/>,
     children: [
       {
         index: true,
@@ -43,15 +45,18 @@ const Router = createBrowserRouter([
   },
   {
     path: "/login",
-    element: <Login/>
+    // element: <Login/>
+    element: <BlankTemplate/>
   },
   {
     path: "/registro",
-    element: <Register/>
+    // element: <Register/>
+    element: <BlankTemplate/>
   },
   {
     path: "/admin",
-    element: <AdminTemplate/>,
+    // element: <AdminTemplate/>,
+    element: <BlankTemplate/>,
     children: [
       {
         path: "/admin/calificacion",
